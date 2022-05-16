@@ -20,19 +20,19 @@
     var CONFIG = {"hostname":"dez1j.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="关于猫盘刷入archlinux后使用docker会报如下错误OCI runtime create failed">
+  <meta name="description" content="下载的srt格式字幕，mpv无法识别加载，subtitleeditor字幕编辑器也无法导入，但是可以以”纯文本“的方式导入，对比其他正常格式的字幕文件，发现问题字幕里面缺少段落标号，只有时间轴，给每段落添加编号可以解决该问题。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="猫盘刷Archlinux使用docker">
-<meta property="og:url" content="https://dez1j.github.io/2022/05/05/%E7%8C%AB%E7%9B%98%E5%88%B7Archlinux%E4%BD%BF%E7%94%A8docker/index.html">
+<meta property="og:title" content="给段落添加段落号">
+<meta property="og:url" content="https://dez1j.github.io/2022/05/16/%E7%BB%99%E6%AE%B5%E8%90%BD%E6%B7%BB%E5%8A%A0%E6%AE%B5%E8%90%BD%E5%8F%B7/index.html">
 <meta property="og:site_name" content="J&#39;s not K">
-<meta property="og:description" content="关于猫盘刷入archlinux后使用docker会报如下错误OCI runtime create failed">
+<meta property="og:description" content="下载的srt格式字幕，mpv无法识别加载，subtitleeditor字幕编辑器也无法导入，但是可以以”纯文本“的方式导入，对比其他正常格式的字幕文件，发现问题字幕里面缺少段落标号，只有时间轴，给每段落添加编号可以解决该问题。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-05-05T01:28:03.000Z">
-<meta property="article:modified_time" content="2022-05-05T02:38:46.400Z">
+<meta property="article:published_time" content="2022-05-16T01:56:30.000Z">
+<meta property="article:modified_time" content="2022-05-16T03:33:10.065Z">
 <meta property="article:author" content="J">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://dez1j.github.io/2022/05/05/%E7%8C%AB%E7%9B%98%E5%88%B7Archlinux%E4%BD%BF%E7%94%A8docker/">
+<link rel="canonical" href="https://dez1j.github.io/2022/05/16/%E7%BB%99%E6%AE%B5%E8%90%BD%E6%B7%BB%E5%8A%A0%E6%AE%B5%E8%90%BD%E5%8F%B7/">
 
 
 <script id="page-configurations">
@@ -45,7 +45,7 @@
   };
 </script>
 
-  <title>猫盘刷Archlinux使用docker | J's not K</title>
+  <title>给段落添加段落号 | J's not K</title>
   
 
 
@@ -155,7 +155,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://dez1j.github.io/2022/05/05/%E7%8C%AB%E7%9B%98%E5%88%B7Archlinux%E4%BD%BF%E7%94%A8docker/">
+    <link itemprop="mainEntityOfPage" href="https://dez1j.github.io/2022/05/16/%E7%BB%99%E6%AE%B5%E8%90%BD%E6%B7%BB%E5%8A%A0%E6%AE%B5%E8%90%BD%E5%8F%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -168,7 +168,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          猫盘刷Archlinux使用docker
+          给段落添加段落号
         </h1>
 
         <div class="post-meta">
@@ -179,7 +179,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2022-05-05 09:28:03 / Modified: 10:38:46" itemprop="dateCreated datePublished" datetime="2022-05-05T09:28:03+08:00">2022-05-05</time>
+              <time title="Created: 2022-05-16 09:56:30 / Modified: 11:33:10" itemprop="dateCreated datePublished" datetime="2022-05-16T09:56:30+08:00">2022-05-16</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -202,14 +202,35 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>关于猫盘刷入archlinux后使用docker会报如下错误<code>OCI runtime create failed</code></p>
+        <p>下载的srt格式字幕，mpv无法识别加载，subtitleeditor字幕编辑器也无法导入，但是可以以”纯文本“的方式导入，对比其他正常格式的字幕文件，发现问题字幕里面缺少段落标号，只有时间轴，给每段落添加编号可以解决该问题。</p>
 <span id="more"></span>
 
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker: Error response from daemon: failed to create shim task: OCI runtime create failed: runc create failed: unable to start container process: error during container init: error setting cgroup config for procHooks process: bpf_prog_query(BPF_CGROUP_DEVICE) failed: invalid argument: unknown.</span><br></pre></td></tr></table></figure>
+<h3 id="Perl"><a href="#Perl" class="headerlink" title="Perl"></a>Perl</h3><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ perl -<span class="number">00</span>pe <span class="string">&#x27;s/^/$.\n/&#x27;</span> file</span><br></pre></td></tr></table></figure>
 
-<h4 id="问题探究"><a href="#问题探究" class="headerlink" title="问题探究"></a>问题探究</h4><p>问题描述: opencontainers&#x2F;runc <a target="_blank" rel="noopener" href="https://github.com/opencontainers/runc/issues/2959">Issue 2959</a><br>解决方法: <a target="_blank" rel="noopener" href="https://github.com/opencontainers/runc/issues/2959#issuecomment-847918170">systemd.unified_cgroup_hierarchy&#x3D;0</a><br><a target="_blank" rel="noopener" href="https://my-take-on.tech/2021/05/07/fix-docker-cgroup-errors-after-systemd-248-update/">archlinux-arm相关</a></p>
-<h4 id="具体操作"><a href="#具体操作" class="headerlink" title="具体操作"></a>具体操作</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$ </span><span class="language-bash"><span class="built_in">cd</span> /boot</span></span><br><span class="line">/boot $ sed -i &#x27;s/\(setenv bootargs.*\)&quot;/\1 systemd.unified_cgroup_hierarchy=0&quot;/&#x27; boot.cmd</span><br><span class="line">/boot $ mkimage -C none -A arm -T script -d /boot/boot.cmd /boot/boot.scr</span><br></pre></td></tr></table></figure>
-<p>重启即可启动容器</p>
+<ul>
+<li><code>-00</code> 开启段落模式，行是由连续的“\n\n”分割，即每行是由段构成</li>
+<li><code>-p</code> 在Perl以<code>-e</code>参数运行后打印输入的每一行</li>
+<li><code>s/^/$.\n/</code> 替换行开头为当前行（段落）号，<code>^</code>行开头，<code>$.</code>当前行行号，<code>\n</code>回车符号，该组合为在每段的上一行添加行号</li>
+</ul>
+<h3 id="Awk"><a href="#Awk" class="headerlink" title="Awk"></a>Awk</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$ </span><span class="language-bash">awk -vRS=<span class="string">&#x27;\n\n&#x27;</span> -vORS=<span class="string">&#x27;\n\n&#x27;</span> <span class="string">&#x27;&#123;print NR&quot;\n&quot;$0&#125;&#x27;</span> file | <span class="built_in">head</span> -n -2</span> </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>-vRS=&#39;\n\n&#39;</code> 将awk的记录分隔符设置为<code>\n\n</code>，就像Perl的段模式一样，然后让awk打印<code>(NR)</code>行号，换行符<code>\n</code>以及当前行<code>$0</code></li>
+<li><code>-vORS=&#39;\n\n&#39;</code> 设置输出记录分隔符，以<code>\n\n</code>为分隔符输出每一行（段）</li>
+<li><code>head -n -2</code> 避免在文件结尾产生的2行空行</li>
+</ul>
+<h3 id="Shell脚本"><a href="#Shell脚本" class="headerlink" title="Shell脚本"></a>Shell脚本</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">l=1                          # paragraph counter</span><br><span class="line">echo -n $l                   # print paragraph counter without new line</span><br><span class="line">while read x; do             # read current line from file, see last line</span><br><span class="line">  if [[ $x == &quot;&quot; ]]; then    # empty line?</span><br><span class="line">    echo                     # print empty line</span><br><span class="line">    read x                   # read next line from file, see last line</span><br><span class="line">    ((l++))                  # increment paragraph counter</span><br><span class="line">    #echo -n $l               # print paragraph counter without new line</span><br><span class="line">    echo $l                  # print paragraph counter with new line</span><br><span class="line">  fi</span><br><span class="line">  echo &quot;$x&quot;                  # print current line</span><br><span class="line">done &lt; file</span><br></pre></td></tr></table></figure>
+
+<h3 id="Extra"><a href="#Extra" class="headerlink" title="Extra"></a>Extra</h3><p>一开始用的参考文章的Perl的方法，输出的行号在每行开头，srt的格式是编号单独一行。对vim比较熟悉，就没考虑修改Perl代码，所以一开始考虑先用Perl的处理结果用vim的录制”宏”玩玩。  </p>
+<ul>
+<li>处理完后的结果是这样：  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">100:02:22,120 --&gt; 00:02:24,240</span><br><span class="line">说到吃鱼, 海鱼肉质鲜甜</span><br><span class="line"></span><br><span class="line">200:02:24,320 --&gt; 00:02:26,080</span><br><span class="line">没办法, 一定比养鱼好吃</span><br><span class="line"></span><br><span class="line">300:02:26,160 --&gt; 00:02:29,360</span><br><span class="line">像这种鱼, 鱼身色泽暗淡</span><br></pre></td></tr></table></figure></li>
+<li>vim打开文件后，观察有相似的结构，很适合录制宏，开始光标在第一行第一个字符，按以下按键序列录制宏<br><code>qaf0d0O[ESC]p4jq</code>  </li>
+<li>观察一共是824段，录制宏的时候第一段已经做过，此时只要821次释放宏就可以，<code>821@a</code></li>
+<li>释放宏结果如下：  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">00:02:22,120 --&gt; 00:02:24,240</span><br><span class="line">说到吃鱼, 海鱼肉质鲜甜</span><br><span class="line"></span><br><span class="line">2</span><br><span class="line">00:02:24,320 --&gt; 00:02:26,080</span><br><span class="line">没办法, 一定比养鱼好吃</span><br><span class="line"></span><br><span class="line">3</span><br><span class="line">00:02:26,160 --&gt; 00:02:29,360</span><br><span class="line">像这种鱼, 鱼身色泽暗淡</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://superuser.com/questions/908818/how-to-insert-text-at-the-beginning-of-each-paragraph-in-bash/916248#916248">how to insert text at the beginning of each paragraph in bash</a></li>
+</ul>
 
     </div>
 
@@ -225,13 +246,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/05/03/:-%E4%B8%8E:=/" rel="prev" title=" :- 与 := ">
-      <i class="fa fa-chevron-left"></i>  :- 与 := 
+    <a href="/2022/05/06/gpg%E7%94%9F%E6%88%90key%E6%97%B6%E5%8D%A1%E4%BD%8F%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" rel="prev" title="gpg生成key时卡住的解决办法">
+      <i class="fa fa-chevron-left"></i> gpg生成key时卡住的解决办法
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/05/05/%E5%A4%84%E7%90%86-GPG-key-expired-%E9%97%AE%E9%A2%98/" rel="next" title="处理 GPG key expired 问题">
-      处理 GPG key expired 问题 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -290,7 +308,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E6%8E%A2%E7%A9%B6"><span class="nav-number">1.</span> <span class="nav-text">问题探究</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B7%E4%BD%93%E6%93%8D%E4%BD%9C"><span class="nav-number">2.</span> <span class="nav-text">具体操作</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Perl"><span class="nav-number">1.</span> <span class="nav-text">Perl</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Awk"><span class="nav-number">2.</span> <span class="nav-text">Awk</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Shell%E8%84%9A%E6%9C%AC"><span class="nav-number">3.</span> <span class="nav-text">Shell脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Extra"><span class="nav-number">4.</span> <span class="nav-text">Extra</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">5.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
