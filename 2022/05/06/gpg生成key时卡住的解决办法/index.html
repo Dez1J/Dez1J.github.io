@@ -28,7 +28,7 @@
 <meta property="og:description" content="在CentOS服务器上使用gpg生成key时，最后一步按提示，需要做敲击键盘等行为来生成随机数，此时会卡住，敲击什么键都没有用，查阅资料是熵池不够用了，需要手动给内核熵池填随机数。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-05-06T08:40:53.000Z">
-<meta property="article:modified_time" content="2022-05-06T09:06:50.820Z">
+<meta property="article:modified_time" content="2022-07-05T02:25:20.703Z">
 <meta property="article:author" content="J">
 <meta name="twitter:card" content="summary">
 
@@ -177,17 +177,23 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2022-05-06 16:40:53 / Modified: 17:06:50" itemprop="dateCreated datePublished" datetime="2022-05-06T16:40:53+08:00">2022-05-06</time>
+              <time title="Created: 2022-05-06 16:40:53" itemprop="dateCreated datePublished" datetime="2022-05-06T16:40:53+08:00">2022-05-06</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-07-05 10:25:20" itemprop="dateModified" datetime="2022-07-05T10:25:20+08:00">2022-07-05</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+                  <a href="/categories/workaround/" itemprop="url" rel="index"><span itemprop="name">workaround</span></a>
                 </span>
             </span>
 
@@ -212,6 +218,7 @@
 </ul>
 <p>gpg生成密钥的时候，需要用到随机数，如果熵池不足的时候，会要求我们敲键盘，晃鼠标，用urandom给内核熵池喂大量的随机数。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># </span><span class="language-bash">yum install rng-tools</span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">rngd -r /dev/urandom -o /dev/random</span></span><br></pre></td></tr></table></figure>
+
 <p>安装rng-tools工具，该工具可以像指定文件生成随机数。这里，我们不需要退出原正在执行gpg的genkey命令的console，新建一个终端，执行如上命令。命令执行完成后，原来卡住的界面就恢复运行了。</p>
 
     </div>
@@ -306,14 +313,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
   </nav>

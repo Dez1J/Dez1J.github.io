@@ -28,7 +28,7 @@
 <meta property="og:description" content="当和远程主机的ssh连接速度很慢时，可以使用速度较快的服务器来中转流量，netcat就是这么一个工具，用来配合ssh">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-03-01T10:01:23.000Z">
-<meta property="article:modified_time" content="2022-05-05T02:41:29.432Z">
+<meta property="article:modified_time" content="2022-06-30T08:55:12.280Z">
 <meta property="article:author" content="J">
 <meta name="twitter:card" content="summary">
 
@@ -185,7 +185,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-05-05 10:41:29" itemprop="dateModified" datetime="2022-05-05T10:41:29+08:00">2022-05-05</time>
+                <time title="Modified: 2022-06-30 16:55:12" itemprop="dateModified" datetime="2022-06-30T16:55:12+08:00">2022-06-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -215,6 +215,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -S openbsd-netcat</span><br></pre></td></tr></table></figure>
 
 <h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -o ProxyCommand=<span class="string">&quot;nc -X 5 -x proxyhost:port %h %p&quot;</span> username@host</span><br></pre></td></tr></table></figure>
+
 <p>-X 5：指定选择socks5</p>
 
     </div>
@@ -307,14 +308,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
   </nav>

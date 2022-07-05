@@ -28,7 +28,7 @@
 <meta property="og:description" content="下载的srt格式字幕，mpv无法识别加载，subtitleeditor字幕编辑器也无法导入，但是可以以”纯文本“的方式导入，对比其他正常格式的字幕文件，发现问题字幕里面缺少段落标号，只有时间轴，给每段落添加编号可以解决该问题。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-05-16T01:56:30.000Z">
-<meta property="article:modified_time" content="2022-05-16T03:33:10.065Z">
+<meta property="article:modified_time" content="2022-06-30T08:59:49.495Z">
 <meta property="article:author" content="J">
 <meta name="twitter:card" content="summary">
 
@@ -177,10 +177,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2022-05-16 09:56:30 / Modified: 11:33:10" itemprop="dateCreated datePublished" datetime="2022-05-16T09:56:30+08:00">2022-05-16</time>
+              <time title="Created: 2022-05-16 09:56:30" itemprop="dateCreated datePublished" datetime="2022-05-16T09:56:30+08:00">2022-05-16</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-06-30 16:59:49" itemprop="dateModified" datetime="2022-06-30T16:59:49+08:00">2022-06-30</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -223,10 +229,15 @@
 
 <h3 id="Extra"><a href="#Extra" class="headerlink" title="Extra"></a>Extra</h3><p>一开始用的参考文章的Perl的方法，输出的行号在每行开头，srt的格式是编号单独一行。对vim比较熟悉，就没考虑修改Perl代码，所以一开始考虑先用Perl的处理结果用vim的录制”宏”玩玩。  </p>
 <ul>
-<li>处理完后的结果是这样：  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">100:02:22,120 --&gt; 00:02:24,240</span><br><span class="line">说到吃鱼, 海鱼肉质鲜甜</span><br><span class="line"></span><br><span class="line">200:02:24,320 --&gt; 00:02:26,080</span><br><span class="line">没办法, 一定比养鱼好吃</span><br><span class="line"></span><br><span class="line">300:02:26,160 --&gt; 00:02:29,360</span><br><span class="line">像这种鱼, 鱼身色泽暗淡</span><br></pre></td></tr></table></figure></li>
-<li>vim打开文件后，观察有相似的结构，很适合录制宏，开始光标在第一行第一个字符，按以下按键序列录制宏<br><code>qaf0d0O[ESC]p4jq</code>  </li>
-<li>观察一共是824段，录制宏的时候第一段已经做过，此时只要821次释放宏就可以，<code>821@a</code></li>
-<li>释放宏结果如下：  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">00:02:22,120 --&gt; 00:02:24,240</span><br><span class="line">说到吃鱼, 海鱼肉质鲜甜</span><br><span class="line"></span><br><span class="line">2</span><br><span class="line">00:02:24,320 --&gt; 00:02:26,080</span><br><span class="line">没办法, 一定比养鱼好吃</span><br><span class="line"></span><br><span class="line">3</span><br><span class="line">00:02:26,160 --&gt; 00:02:29,360</span><br><span class="line">像这种鱼, 鱼身色泽暗淡</span><br></pre></td></tr></table></figure></li>
+<li><p>处理完后的结果是这样：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">100:02:22,120 --&gt; 00:02:24,240</span><br><span class="line">说到吃鱼, 海鱼肉质鲜甜</span><br><span class="line"></span><br><span class="line">200:02:24,320 --&gt; 00:02:26,080</span><br><span class="line">没办法, 一定比养鱼好吃</span><br><span class="line"></span><br><span class="line">300:02:26,160 --&gt; 00:02:29,360</span><br><span class="line">像这种鱼, 鱼身色泽暗淡</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>vim打开文件后，观察有相似的结构，很适合录制宏，开始光标在第一行第一个字符，按以下按键序列录制宏<br><code>qaf0d0O[ESC]p4jq</code>  </p>
+</li>
+<li><p>观察一共是824段，录制宏的时候第一段已经做过，此时只要821次释放宏就可以，<code>821@a</code></p>
+</li>
+<li><p>释放宏结果如下：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">00:02:22,120 --&gt; 00:02:24,240</span><br><span class="line">说到吃鱼, 海鱼肉质鲜甜</span><br><span class="line"></span><br><span class="line">2</span><br><span class="line">00:02:24,320 --&gt; 00:02:26,080</span><br><span class="line">没办法, 一定比养鱼好吃</span><br><span class="line"></span><br><span class="line">3</span><br><span class="line">00:02:26,160 --&gt; 00:02:29,360</span><br><span class="line">像这种鱼, 鱼身色泽暗淡</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ul>
 <li><a target="_blank" rel="noopener" href="https://superuser.com/questions/908818/how-to-insert-text-at-the-beginning-of-each-paragraph-in-bash/916248#916248">how to insert text at the beginning of each paragraph in bash</a></li>
@@ -249,7 +260,10 @@
     <a href="/2022/05/06/gpg%E7%94%9F%E6%88%90key%E6%97%B6%E5%8D%A1%E4%BD%8F%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" rel="prev" title="gpg生成key时卡住的解决办法">
       <i class="fa fa-chevron-left"></i> gpg生成key时卡住的解决办法
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2022/07/05/gitignore%E4%B8%8D%E7%94%9F%E6%95%88%E7%9A%84%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" rel="next" title="gitignore不生效的问题解决">
+      gitignore不生效的问题解决 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -322,14 +336,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
   </nav>
