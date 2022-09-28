@@ -20,19 +20,19 @@
     var CONFIG = {"hostname":"dez1j.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="在CentOS服务器上使用gpg生成key时，最后一步按提示，需要做敲击键盘等行为来生成随机数，此时会卡住，敲击什么键都没有用，查阅资料是熵池不够用了，需要手动给内核熵池填随机数。">
+  <meta name="description" content="Linux安装MySQL较为方便，所以在WSL里安装mariadb(mysql)；但Windows下Workbench会出现无法连接的问题，可以使用ssh传递连接。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="gpg生成key时卡住的解决办法">
-<meta property="og:url" content="https://dez1j.github.io/2022/05/06/gpg%E7%94%9F%E6%88%90key%E6%97%B6%E5%8D%A1%E4%BD%8F%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/index.html">
+<meta property="og:title" content="Workbench无法用IP连接WSL的mysql解决办法">
+<meta property="og:url" content="https://dez1j.github.io/2022/09/27/Workbench%E6%97%A0%E6%B3%95%E7%94%A8IP%E8%BF%9E%E6%8E%A5WSL%E7%9A%84mysql%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/index.html">
 <meta property="og:site_name" content="J&#39;s not K">
-<meta property="og:description" content="在CentOS服务器上使用gpg生成key时，最后一步按提示，需要做敲击键盘等行为来生成随机数，此时会卡住，敲击什么键都没有用，查阅资料是熵池不够用了，需要手动给内核熵池填随机数。">
+<meta property="og:description" content="Linux安装MySQL较为方便，所以在WSL里安装mariadb(mysql)；但Windows下Workbench会出现无法连接的问题，可以使用ssh传递连接。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-05-06T08:40:53.000Z">
-<meta property="article:modified_time" content="2022-07-05T02:25:20.703Z">
+<meta property="article:published_time" content="2022-09-27T05:17:00.000Z">
+<meta property="article:modified_time" content="2022-09-28T00:33:14.382Z">
 <meta property="article:author" content="J">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://dez1j.github.io/2022/05/06/gpg%E7%94%9F%E6%88%90key%E6%97%B6%E5%8D%A1%E4%BD%8F%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/">
+<link rel="canonical" href="https://dez1j.github.io/2022/09/27/Workbench%E6%97%A0%E6%B3%95%E7%94%A8IP%E8%BF%9E%E6%8E%A5WSL%E7%9A%84mysql%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/">
 
 
 <script id="page-configurations">
@@ -45,7 +45,7 @@
   };
 </script>
 
-  <title>gpg生成key时卡住的解决办法 | J's not K</title>
+  <title>Workbench无法用IP连接WSL的mysql解决办法 | J's not K</title>
   
 
 
@@ -155,7 +155,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://dez1j.github.io/2022/05/06/gpg%E7%94%9F%E6%88%90key%E6%97%B6%E5%8D%A1%E4%BD%8F%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/">
+    <link itemprop="mainEntityOfPage" href="https://dez1j.github.io/2022/09/27/Workbench%E6%97%A0%E6%B3%95%E7%94%A8IP%E8%BF%9E%E6%8E%A5WSL%E7%9A%84mysql%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -168,7 +168,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          gpg生成key时卡住的解决办法
+          Workbench无法用IP连接WSL的mysql解决办法
         </h1>
 
         <div class="post-meta">
@@ -178,14 +178,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2022-05-06 16:40:53" itemprop="dateCreated datePublished" datetime="2022-05-06T16:40:53+08:00">2022-05-06</time>
+              <time title="Created: 2022-09-27 13:17:00" itemprop="dateCreated datePublished" datetime="2022-09-27T13:17:00+08:00">2022-09-27</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-07-05 10:25:20" itemprop="dateModified" datetime="2022-07-05T10:25:20+08:00">2022-07-05</time>
+                <time title="Modified: 2022-09-28 08:33:14" itemprop="dateModified" datetime="2022-09-28T08:33:14+08:00">2022-09-28</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -193,7 +193,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/workaround/" itemprop="url" rel="index"><span itemprop="name">workaround</span></a>
+                  <a href="/categories/Windows/" itemprop="url" rel="index"><span itemprop="name">Windows</span></a>
                 </span>
             </span>
 
@@ -208,18 +208,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>在CentOS服务器上使用gpg生成key时，最后一步按提示，需要做敲击键盘等行为来生成随机数，此时会卡住，敲击什么键都没有用，查阅资料是熵池不够用了，需要手动给内核熵池填随机数。</p>
+        <p>Linux安装MySQL较为方便，所以在WSL里安装mariadb(mysql)；但Windows下Workbench会出现无法连接的问题，可以使用ssh传递连接。</p>
 <span id="more"></span>
 
-<p>了解到 &#x2F;dev&#x2F;random 和 &#x2F;dev&#x2F;urandom 是字符型设备。可以在用户空间通过read系统调用读这两个设备文件以此获取随机数。<br>区别:</p>
-<ul>
-<li>&#x2F;dev&#x2F;random 如果内核熵池的估计值为0时，即熵池不足的时候，&#x2F;dev&#x2F;random将被阻塞</li>
-<li>&#x2F;dev&#x2F;urandom 没有这个限制，它继续使用软件算法继续生成随机数，此时的随机数算是伪随机数。</li>
-</ul>
-<p>gpg生成密钥的时候，需要用到随机数，如果熵池不足的时候，会要求我们敲键盘，晃鼠标，用urandom给内核熵池喂大量的随机数。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># </span><span class="language-bash">yum install rng-tools</span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">rngd -r /dev/urandom -o /dev/random</span></span><br></pre></td></tr></table></figure>
-
-<p>安装rng-tools工具，该工具可以像指定文件生成随机数。这里，我们不需要退出原正在执行gpg的genkey命令的console，新建一个终端，执行如上命令。命令执行完成后，原来卡住的界面就恢复运行了。</p>
+<h4 id="Issue-Inquiry"><a href="#Issue-Inquiry" class="headerlink" title="Issue Inquiry"></a>Issue Inquiry</h4><p>在我的Windows PC上,查寻不到WSL单独分配的IP,PC跟Kali linux WSL使用同一个IP,所以无法通过TCP&#x2F;IP连接数据库，观察到<code>Connect Method</code>有<code>Standard TCP/IP over SSH</code>选项，想到可以在Kali linux中开启sshd,此时PC和WSL Kali Linux共用一个IP,此时Kali Linix中sshd的22端口也就是Windows 10 localhost:22端口。</p>
+<h4 id="Workaround"><a href="#Workaround" class="headerlink" title="Workaround"></a>Workaround</h4><ol>
+<li>Install <code>ssh-server</code> in Windows WSL</li>
+<li><code>MySQL Workbench Connection Method</code> 选择 <code>Standard TCP/IP over SSH</code></li>
+<li>SSH Hostname <code>127.0.0.1:22</code>, SSH Username <code>WSL Linux Username</code>, SSH Password <code>WSL Linux User password</code></li>
+<li>MySQL Hostname <code>127.0.0.1</code>, MySQL ServerPort <code>3306</code>(默认), Username <code>root</code>, Password <code>MySQL root password</code></li>
+</ol>
 
     </div>
 
@@ -235,13 +233,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/05/05/%E5%A4%84%E7%90%86-GPG-key-expired-%E9%97%AE%E9%A2%98/" rel="prev" title="处理 GPG key expired 问题">
-      <i class="fa fa-chevron-left"></i> 处理 GPG key expired 问题
+    <a href="/2022/07/05/gitignore%E4%B8%8D%E7%94%9F%E6%95%88%E7%9A%84%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" rel="prev" title="gitignore不生效的问题解决">
+      <i class="fa fa-chevron-left"></i> gitignore不生效的问题解决
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/05/16/%E7%BB%99%E6%AE%B5%E8%90%BD%E6%B7%BB%E5%8A%A0%E6%AE%B5%E8%90%BD%E5%8F%B7/" rel="next" title="给段落添加段落号">
-      给段落添加段落号 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -300,6 +295,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Issue-Inquiry"><span class="nav-number">1.</span> <span class="nav-text">Issue Inquiry</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Workaround"><span class="nav-number">2.</span> <span class="nav-text">Workaround</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
