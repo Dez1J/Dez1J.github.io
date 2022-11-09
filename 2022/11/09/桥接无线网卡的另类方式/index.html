@@ -28,7 +28,7 @@
 <meta property="og:description" content="无线网卡通常无法桥接，或者有些支持WDS模式的无线网卡可用常规步骤实现桥接。通过查阅资料，找到一种另类方式实现桥接。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-11-09T00:41:48.000Z">
-<meta property="article:modified_time" content="2022-11-09T01:59:32.123Z">
+<meta property="article:modified_time" content="2022-11-09T02:43:00.897Z">
 <meta property="article:author" content="J">
 <meta name="twitter:card" content="summary">
 
@@ -179,7 +179,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2022-11-09 08:41:48 / Modified: 09:59:32" itemprop="dateCreated datePublished" datetime="2022-11-09T08:41:48+08:00">2022-11-09</time>
+              <time title="Created: 2022-11-09 08:41:48 / Modified: 10:43:00" itemprop="dateCreated datePublished" datetime="2022-11-09T08:41:48+08:00">2022-11-09</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -205,31 +205,37 @@
         <p>无线网卡通常无法桥接，或者有些支持WDS模式的无线网卡可用常规步骤实现桥接。通过查阅资料，找到一种另类方式实现桥接。</p>
 <span id="more"></span>
 
-<h4 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h4><p>将虚拟机vm接入宿主机所在的上层网络，可以正常使用某些功能，例如windows虚拟机安装微信后，还原备份内容，需要手机和PC版软件在同一局域网内。通常装完虚拟机后，自动创建一个NAT网络，所以我们需要手动创建一个桥接网络，来联通宿主机的上层局域网。<br>常规方法即：</p>
+<h4 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h4><p>通常装完虚拟机后，会自动创建一个NAT网络用于虚拟系统联网。但实际使用中，此联网方式会使一些功能受限，例如windows虚拟机安装微信后，还原备份内容，就需要手机和PC版软件在同一局域网内而不是NAT。所以我们需要手动创建一个桥接网络，来实现宿主机和虚拟系统的局域网访问。<br>常规方法即：</p>
 <ol>
 <li>创建网桥接口br0</li>
-<li>将有线网卡（以太A网卡）加入br0的控制</li>
+<li>将有线网卡（以太网卡）加入br0的控制</li>
 <li>给br0赋IP（和局域网相同网段）</li>
 <li>添加br0相关的route rule</li>
 <li>虚拟机配置NIC部分将网卡选择桥接模式，桥接网卡选择br0</li>
 </ol>
-<h4 id="Isseu-amp-Workaround"><a href="#Isseu-amp-Workaround" class="headerlink" title="Isseu &amp; Workaround"></a>Isseu &amp; Workaround</h4><ol>
-<li>Analysis<br>以上步骤针对有线网卡可以正常操作，但是对无线网卡无效。桥接本质上是虚拟多个mac地址，每个mac地址分配IP，由于无线AP的认证方式，只能认证3地址，虚拟机虚拟出的第4个mac地址发出的包会被AP拒绝接受，所以无法完成桥接;若网卡支持文章开头提到的WDS模式，就是4地址模式（可同过<code>iw dev wlp3s0 set 4addr on</code>开启），原则上可以桥接。</li>
-</ol>
-<p>既然无法使用第4个mac地址认证，那就使用PC主机无线网卡的mac地址来认证吧。网络很多解决方法原理都是使用类似arp欺骗，即将虚拟机发出的IP包的mac地址改为需主机的无线网卡的mac地址再发出去，这样无线路由器AP就能认证通过，实现网络的联通。</p>
-<p>网络上搜索文章提供的解决方法有如下几种:<br>    - 如果网卡支持wds模式，使用iw开启4addr, 然后常规桥接<br>    - 利用arp proxy软件 parprouted, 使用tunctl创建tap0, 然后parprouted wlan0 tap0<br>    - 利用ebtables创建防火墙规则来修改流量的mac地址为无线网卡的mac地址</p>
-<ol start="2">
-<li>Workaround<br>再次查阅资料，发现一个比较简单且不用安装软件包，也不用修改防火墙规则的方法，只需要开启系统中创建的网卡<code>proxy_arp</code>特性<br>文章中写道在<code>/etc/sysctl.conf</code>添加</li>
-</ol>
+<h4 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h4><p>以上步骤针对有线网卡可以正常操作，但是对无线网卡无效。桥接本质上是虚拟多个mac地址，每个mac地址分配IP，由于无线AP的认证方式，只能认证3地址，虚拟机虚拟出的第4个mac地址发出的包会被AP拒绝接受，所以无法完成桥接;若网卡支持文章开头提到的WDS模式，就是4地址模式（可同过<code>iw dev wlp3s0 set 4addr on</code>开启），原则上可以桥接。<br>既然无法使用第4个mac地址认证，那就使用PC主机无线网卡的mac地址来认证吧。网络很多解决方法原理都是使用类似arp欺骗，即将虚拟机发出的IP包的mac地址改为需主机的无线网卡的mac地址再发出去，这样无线路由器AP就能认证通过，实现网络的联通。</p>
+<p><em><strong>维基百科的无线网桥接</strong></em><a href="#refer-anchor-1"><sup>1</sup></a>中，提供的解决方法有如下几种:</p>
+<ul>
+<li>如果网卡支持wds模式，使用iw开启4addr, 然后常规桥接</li>
+<li>利用arp proxy软件 parprouted, 使用tunctl创建tap0, 然后parprouted wlan0 tap0</li>
+<li>利用ebtables创建防火墙规则来修改流量的mac地址为无线网卡的mac地址</li>
+</ul>
+<h4 id="Workaround"><a href="#Workaround" class="headerlink" title="Workaround"></a>Workaround</h4><p>再次查阅资料，发现一个比较简单且不用安装软件包，也不用修改防火墙规则的方法，只需要开启系统中创建的网卡<code>proxy_arp</code>特性<br><em><strong>John Lewis的文章</strong></em><a href="#refer-anchor-2"><sup>2</sup></a>中写道在<code>/etc/sysctl.conf</code>添加</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">net.ipv4.conf.wlp2s0.proxy_arp = 1</span><br><span class="line">net.ipv4.conf.br0.proxy_arp = 1</span><br></pre></td></tr></table></figure>
 
-<p>我直接在<code>/proc/sys/net/ipv4/conf</code>路径中找到所有网卡的相关目录，在无线网卡wlp3s0（我pc是这个接口名）和创建的网桥接口br0目录中有<code>proxy_arp</code>文件,修改为1并且禁用和启用一下接口，再添加条路由规则，就可以爽快的将虚拟机加入宿主机的局域网啦。<br>以下是用到的所有命令:</p>
+<p>取文章中的arp proxy相关配置，在无线网卡wlp3s0（我pc是这个接口名）和创建的网桥接口br0目录中有<code>proxy_arp</code>文件,修改为1并且禁用和启用一下接口，再添加路由规则，就可以愉快的将虚拟机加入宿主机的局域网啦。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ip link add name br0 type bridge</span><br><span class="line">cd /proc/sys/net/ipv4/conf</span><br><span class="line">echo 1 &gt; wlp3s0/proxy_arp</span><br><span class="line">echo 1 &gt; br0/proxy_arp</span><br><span class="line"><span class="meta">#</span><span class="language-bash"><span class="comment">#if wlp3s0 already up</span></span></span><br><span class="line"><span class="meta">#</span><span class="language-bash">ip <span class="built_in">link</span> <span class="built_in">set</span> dev wlp3s0 down</span></span><br><span class="line">ip link set dev wlp3s0 up</span><br><span class="line">ip link set dev br0 up</span><br><span class="line"><span class="meta">#</span><span class="language-bash"><span class="comment">#my LAN is 192.168.2.0/24 and my Window 10 virtual machine&#x27;s static IP is 192.168.2.48/32</span></span></span><br><span class="line">ip route add 192.168.2.48/32 dev br0</span><br></pre></td></tr></table></figure>
 
 <p>之后虚拟机就可以ping通局域网任何一台机了。</p>
-<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><ul>
-<li><a target="_blank" rel="noopener" href="https://johnlewis.ie/wireless-bridging-the-third-way">Wireless-bridging - the third way</a></li>
-<li><a target="_blank" rel="noopener" href="https://pve.proxmox.com/wiki/WLAN#Bridge_Port_Using_ebtables">Bridge WLAN - Wikipedia</a></li>
+<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><div id="refer-anchor-1"></div>
+
+<ul>
+<li>[1] <a target="_blank" rel="noopener" href="https://pve.proxmox.com/wiki/WLAN#Bridge_Port_Using_ebtables">Bridge WLAN - Wikipedia</a></li>
+</ul>
+<div id="refer-anchor-2"></div>
+
+<ul>
+<li>[2] <a target="_blank" rel="noopener" href="https://johnlewis.ie/wireless-bridging-the-third-way">Wireless-bridging - the third way</a></li>
 </ul>
 
     </div>
@@ -308,7 +314,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Intro"><span class="nav-number">1.</span> <span class="nav-text">Intro</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Isseu-amp-Workaround"><span class="nav-number">2.</span> <span class="nav-text">Isseu &amp; Workaround</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Intro"><span class="nav-number">1.</span> <span class="nav-text">Intro</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Analysis"><span class="nav-number">2.</span> <span class="nav-text">Analysis</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Workaround"><span class="nav-number">3.</span> <span class="nav-text">Workaround</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
