@@ -20,32 +20,28 @@
     var CONFIG = {"hostname":"dez1j.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="在项目文件夹想要忽略某文件, 可以创建gitignore文件，写入相应文件名。但有时候会遇到写入的gitignore后，git status显示没有排除该文件。之前git提交过后再改写gitignore可能会出现这问题。此前遇到，记录一下。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="gitignore不生效的问题解决">
-<meta property="og:url" content="https://dez1j.github.io/2022/07/05/gitignore%E4%B8%8D%E7%94%9F%E6%95%88%E7%9A%84%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="J&#39;s not K">
+<meta property="og:url" content="https://dez1j.github.io/page/2/index.html">
 <meta property="og:site_name" content="J&#39;s not K">
-<meta property="og:description" content="在项目文件夹想要忽略某文件, 可以创建gitignore文件，写入相应文件名。但有时候会遇到写入的gitignore后，git status显示没有排除该文件。之前git提交过后再改写gitignore可能会出现这问题。此前遇到，记录一下。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-07-05T01:42:53.000Z">
-<meta property="article:modified_time" content="2022-07-05T02:23:59.436Z">
 <meta property="article:author" content="J">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://dez1j.github.io/2022/07/05/gitignore%E4%B8%8D%E7%94%9F%E6%95%88%E7%9A%84%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">
+<link rel="canonical" href="https://dez1j.github.io/page/2/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : false,
-    isPost : true,
+    isHome : true,
+    isPost : false,
     lang   : 'en'
   };
 </script>
 
-  <title>gitignore不生效的问题解决 | J's not K</title>
+  <title>J's not K</title>
   
 
 
@@ -148,14 +144,13 @@
         <div class="content-wrap">
           
 
-          <div class="content post posts-expand">
+          <div class="content index posts-expand">
             
-
-    
+      
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://dez1j.github.io/2022/07/05/gitignore%E4%B8%8D%E7%94%9F%E6%95%88%E7%9A%84%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">
+    <link itemprop="mainEntityOfPage" href="https://dez1j.github.io/2022/03/01/Arch%E4%B8%8Bssh%E4%BD%BF%E7%94%A8%E4%BB%A3%E7%90%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -167,9 +162,10 @@
       <meta itemprop="name" content="J's not K">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          gitignore不生效的问题解决
-        </h1>
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/01/Arch%E4%B8%8Bssh%E4%BD%BF%E7%94%A8%E4%BB%A3%E7%90%86/" class="post-title-link" itemprop="url">Arch下ssh使用中转</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -177,17 +173,23 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2022-07-05 09:42:53 / Modified: 10:23:59" itemprop="dateCreated datePublished" datetime="2022-07-05T09:42:53+08:00">2022-07-05</time>
+              <time title="Created: 2022-03-01 18:01:23" itemprop="dateCreated datePublished" datetime="2022-03-01T18:01:23+08:00">2022-03-01</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-06-30 16:55:12" itemprop="dateModified" datetime="2022-06-30T16:55:12+08:00">2022-06-30</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/workaround/" itemprop="url" rel="index"><span itemprop="name">workaround</span></a>
+                  <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
                 </span>
             </span>
 
@@ -202,52 +204,34 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>在项目文件夹想要忽略某文件, 可以创建gitignore文件，写入相应文件名。但有时候会遇到写入的gitignore后，git status显示没有排除该文件。之前git提交过<br>后再改写gitignore可能会出现这问题。此前遇到，记录一下。</p>
-<span id="more"></span>
-
-<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>GitHub Docs中的解释:</p>
-<blockquote>
-<p>If you want to ignore a file that is already checked in, you must untrack the file before you add a rule to ignore it. From your terminal, untrack the file.</p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$ </span><span class="language-bash">git <span class="built_in">rm</span> --cached FILENAME</span></span><br></pre></td></tr></table></figure>
-
-<p>即在gitignore文件中忽略以前提交过的文件需要先从cached中清除。</p>
-<h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$ </span><span class="language-bash">git <span class="built_in">rm</span> -r --cached .</span></span><br></pre></td></tr></table></figure>
-
-<p>上面的命令会清除以前的git历史，之后再次<code>git add .</code>会重新添加所有文件，不嫌麻烦可以可以根据<code>git status</code>查看不生效的文件名&#x2F;夹单独清除缓存，使用<code>git rm -r --cached file/directory</code></p>
-<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ul>
-<li><a target="_blank" rel="noopener" href="https://gist.github.com/pavankjadda/2bb6fbdd8786e1f57fd7bcbcc666b51d">How to fix “.gitignore not working” issue?</a></li>
-<li><a target="_blank" rel="noopener" href="https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files">GitHub Docs: Ignoring files</a></li>
-</ul>
-
+          <p>当和远程主机的ssh连接速度很慢时，可以使用速度较快的服务器来中转流量，netcat就是这么一个工具，用来配合ssh</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/03/01/Arch%E4%B8%8Bssh%E4%BD%BF%E7%94%A8%E4%BB%A3%E7%90%86/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
     </div>
 
     
     
     
-
       <footer class="post-footer">
-
-        
-
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2022/05/16/%E7%BB%99%E6%AE%B5%E8%90%BD%E6%B7%BB%E5%8A%A0%E6%AE%B5%E8%90%BD%E5%8F%B7/" rel="prev" title="给段落添加段落号">
-      <i class="fa fa-chevron-left"></i> 给段落添加段落号
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/09/27/Workbench%E6%97%A0%E6%B3%95%E7%94%A8IP%E8%BF%9E%E6%8E%A5WSL%E7%9A%84mysql%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" rel="next" title="Workbench无法用IP连接WSL的mysql解决办法">
-      Workbench无法用IP连接WSL的mysql解决办法 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
+        <div class="post-eof"></div>
       </footer>
-    
   </article>
   
   
   
+
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
 
 
 
@@ -299,7 +283,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E5%9B%A0"><span class="nav-number">1.</span> <span class="nav-text">原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">解决办法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">3.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
