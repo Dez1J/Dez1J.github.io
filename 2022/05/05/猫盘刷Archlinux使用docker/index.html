@@ -28,7 +28,7 @@
 <meta property="og:description" content="关于猫盘刷入archlinux后使用docker会报如下错误OCI runtime create failed">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-05-05T01:28:03.000Z">
-<meta property="article:modified_time" content="2022-07-05T02:25:37.520Z">
+<meta property="article:modified_time" content="2022-11-15T08:00:35.882Z">
 <meta property="article:author" content="J">
 <meta name="twitter:card" content="summary">
 
@@ -185,7 +185,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-07-05 10:25:37" itemprop="dateModified" datetime="2022-07-05T10:25:37+08:00">2022-07-05</time>
+                <time title="Modified: 2022-11-15 16:00:35" itemprop="dateModified" datetime="2022-11-15T16:00:35+08:00">2022-11-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -193,7 +193,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/workaround/" itemprop="url" rel="index"><span itemprop="name">workaround</span></a>
+                  <a href="/categories/Workaround/" itemprop="url" rel="index"><span itemprop="name">Workaround</span></a>
                 </span>
             </span>
 
@@ -215,6 +215,7 @@
 
 <h4 id="问题探究"><a href="#问题探究" class="headerlink" title="问题探究"></a>问题探究</h4><p>问题描述: opencontainers&#x2F;runc <a target="_blank" rel="noopener" href="https://github.com/opencontainers/runc/issues/2959">Issue 2959</a><br>解决方法: <a target="_blank" rel="noopener" href="https://github.com/opencontainers/runc/issues/2959#issuecomment-847918170">systemd.unified_cgroup_hierarchy&#x3D;0</a><br><a target="_blank" rel="noopener" href="https://my-take-on.tech/2021/05/07/fix-docker-cgroup-errors-after-systemd-248-update/">archlinux-arm相关</a></p>
 <h4 id="具体操作"><a href="#具体操作" class="headerlink" title="具体操作"></a>具体操作</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$ </span><span class="language-bash"><span class="built_in">cd</span> /boot</span></span><br><span class="line">/boot $ sed -i &#x27;s/\(setenv bootargs.*\)&quot;/\1 systemd.unified_cgroup_hierarchy=0&quot;/&#x27; boot.cmd</span><br><span class="line">/boot $ mkimage -C none -A arm -T script -d /boot/boot.cmd /boot/boot.scr</span><br></pre></td></tr></table></figure>
+
 <p>重启即可启动容器</p>
 
     </div>
@@ -317,7 +318,7 @@
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
   </nav>
